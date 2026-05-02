@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriConnect | Login</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="auth-body">
+  <div class="auth-container">
+    <div class="auth-left">
+      <a href="home.html" class="logo">🌿 AgriConnect</a>
+      <h1>Login to your farming marketplace</h1>
+      <p>Select your role, verify demo OTP and open your dashboard.</p>
+      <div class="auth-points">
+        <!-- <span>✅ Frontend only</span> -->
+        <!-- <span>✅ OTP demo</span> -->
+        <!-- <span>✅ localStorage data</span> -->
+      </div>
+    </div>
+
+    <div class="login-card">
+      <h2>Welcome Back</h2>
+      <p class="muted">Choose your role and login method</p>
+
+      <label for="role">Select Role</label>
+      <select id="role">
+        <option value="">Choose role</option>
+        <option value="farmer">Farmer</option>
+        <option value="buyer">Buyer</option>
+        <option value="equipment">Equipment Owner</option>
+      </select>
+
+      <label for="loginMethod">Login Method</label>
+      <select id="loginMethod" onchange="changeLoginPlaceholder()">
+        <option value="email">Email</option>
+        <option value="mobile">Mobile Number</option>
+      </select>
+
+      <label for="userName">Full Name</label>
+      <input type="text" id="userName" placeholder="Enter your name" />
+
+      <label for="loginInput">Email or Mobile</label>
+      <input type="text" id="loginInput" placeholder="Enter your email" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password" />
+
+      <div class="otp-row">
+        <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="4" />
+        <button type="button" onclick="sendOTP()">Send OTP</button>
+      </div>
+
+      <button class="full-btn" onclick="loginUser()">Login</button>
+      <!-- <p class="demo-text">Demo only: OTP is shown in alert. No backend used.</p> -->
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

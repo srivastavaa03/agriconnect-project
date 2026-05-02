@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriConnect | Equipment</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body onload="initEquipmentPage()">
+  <nav class="navbar">
+    <a href="home.html" class="logo">🌿 AgriConnect</a>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="home.html">Home</a>
+      <a href="buyer.html">Marketplace</a>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <header class="dashboard-hero equipment-hero">
+    <div>
+      <span class="badge">Equipment Owner</span>
+      <h1>Equipment Owner Dashboard 🚜</h1>
+      <p id="userDetails">List your farming equipment for rent</p>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+    <section class="stats-grid">
+      <div class="stat-card">
+        <p>Listed Equipment</p>
+        <h2 id="listedEquipment">0</h2>
+      </div>
+      <div class="stat-card">
+        <p>Active Rentals</p>
+        <h2>6</h2>
+      </div>
+      <div class="stat-card">
+        <p>Earnings</p>
+        <h2>₹18,200</h2>
+      </div>
+    </section>
+
+    <section class="two-column">
+      <div class="panel">
+        <h2>Add / Edit Equipment</h2>
+        <form onsubmit="saveEquipment(event)">
+          <input type="hidden" id="equipmentEditId" />
+          <input type="text" id="equipmentName" placeholder="Equipment name" required />
+          <input type="number" id="equipmentRent" placeholder="Rent per day" required />
+          <input type="text" id="equipmentLocation" placeholder="Location" required />
+          <select id="equipmentAvailability" required>
+            <option value="">Availability</option>
+            <option>Available</option>
+            <option>Not Available</option>
+          </select>
+          <input type="url" id="equipmentImage" placeholder="Image URL" />
+          <button class="full-btn">List Equipment</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Popular Equipment</h2>
+        <div class="quick-list">
+          <span>🚜 Tractor</span>
+          <span>🌾 Harvester</span>
+          <span>💧 Water Pump</span>
+          <span>🌱 Seeder</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section no-pad">
+      <h2>My Equipment</h2>
+      <div class="grid cards-grid" id="equipmentList"></div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriConnect | Farmer</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body onload="initFarmerPage()">
+  <nav class="navbar">
+    <a href="home.html" class="logo">🌿 AgriConnect</a>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="home.html">Home</a>
+      <a href="buyer.html">Marketplace</a>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <header class="dashboard-hero">
+    <div>
+      <span class="badge">Farmer Dashboard</span>
+      <h1>Hi Farmer 👋</h1>
+      <p id="userDetails">Loading user...</p>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+    <section class="weather-card">
+      <div>
+        <h3>☁️ Today's Weather</h3>
+        <p>Cloudy weather, Humidity 70%, Wind 15 km/h</p>
+      </div>
+      <strong>26°C</strong>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <p>Total Products</p>
+        <h2 id="totalProducts">0</h2>
+      </div>
+      <div class="stat-card">
+        <p>Total Orders</p>
+        <h2>12</h2>
+      </div>
+      <div class="stat-card">
+        <p>Wallet Balance</p>
+        <h2>₹8,450</h2>
+      </div>
+      <div class="stat-card">
+        <p>Equipment Requests</p>
+        <h2>4</h2>
+      </div>
+    </section>
+
+    <section class="section no-pad">
+      <h2>Farmer Features</h2>
+      <div class="grid cards-grid">
+        <div class="small-feature">🌾 Add Crop</div>
+        <div class="small-feature">📦 My Products</div>
+        <div class="small-feature">🤖 AI Price Prediction</div>
+        <div class="small-feature">🚜 Rent Equipment</div>
+        <div class="small-feature">💳 Credit Wallet</div>
+        <div class="small-feature">👥 Join Farmer Cluster</div>
+      </div>
+    </section>
+
+    <section class="two-column">
+      <div class="panel">
+        <h2>Add / Edit Crop</h2>
+        <form id="cropForm" onsubmit="saveCrop(event)">
+          <input type="hidden" id="cropEditId" />
+          <input type="text" id="cropName" placeholder="Crop name" required />
+          <select id="cropCategory" required>
+            <option value="">Select category</option>
+            <option>Vegetables</option>
+            <option>Fruits</option>
+            <option>Grains</option>
+          </select>
+          <input type="number" id="cropPrice" placeholder="Price per kg" required />
+          <input type="number" id="cropQuantity" placeholder="Quantity in kg" required />
+          <input type="text" id="cropLocation" placeholder="Location" required />
+          <input type="url" id="cropImage" placeholder="Image URL" />
+          <button class="full-btn">Save Crop</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>AI Price Prediction Demo</h2>
+        <select id="priceCrop">
+          <option value="">Select crop</option>
+          <option value="Tomato">Tomato</option>
+          <option value="Potato">Potato</option>
+          <option value="Onion">Onion</option>
+          <option value="Wheat">Wheat</option>
+          <option value="Rice">Rice</option>
+        </select>
+        <button class="full-btn" onclick="predictPrice()">Predict Price</button>
+        <div class="prediction-box" id="predictionBox">Suggested price will appear here.</div>
+      </div>
+    </section>
+
+    <section class="section no-pad">
+      <h2>My Products</h2>
+      <div class="grid cards-grid" id="farmerProducts"></div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
