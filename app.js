@@ -8,48 +8,23 @@ let selectedCategory = "All";
 
 const defaultImage = "https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?w=700";
 
-const sampleCrops = [
-  {
-    id: 101,
-    name: "Fresh Tomatoes",
-    category: "Vegetables",
-    price: 30,
-    quantity: 80,
-    location: "Ghazipur",
-    image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=700",
-    farmerName: "Ramesh Kumar"
-  },
-  {
-    id: 102,
-    name: "Organic Potatoes",
-    category: "Vegetables",
-    price: 25,
-    quantity: 120,
-    location: "Varanasi",
-    image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=700",
-    farmerName: "Suresh Yadav"
-  },
-  {
-    id: 103,
-    name: "Bananas",
-    category: "Fruits",
-    price: 40,
-    quantity: 60,
-    location: "Lucknow",
-    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=700",
-    farmerName: "Mahesh Patel"
-  },
-  {
-    id: 104,
-    name: "Wheat",
-    category: "Grains",
-    price: 28,
-    quantity: 300,
-    location: "Kanpur",
-    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=700",
-    farmerName: "Amit Singh"
+let sampleCrops = [];
+
+async function fetchProducts() {
+  try {
+    const response = await fetch("http://localhost:5000/products");
+
+    sampleCrops = await response.json();
+
+    console.log(sampleCrops);
+
+  } catch (error) {
+    console.log(error);
   }
-];
+}
+
+fetchProducts();
+
 
 const sampleEquipment = [
   {
